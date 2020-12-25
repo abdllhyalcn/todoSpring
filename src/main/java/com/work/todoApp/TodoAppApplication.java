@@ -1,4 +1,4 @@
-package com.work.todoApp;
+package com.work.TodoApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

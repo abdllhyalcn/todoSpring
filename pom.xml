@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.work</groupId>
-	<artifactId>todoApp</artifactId>
+	<artifactId>TodoApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>todoApp</name>
-	<description>Todo App integrated with Postgresql</description>
+	<name>TodoApp</name>
+	<description>TodoApp integrated with Postgresql</description>
 
 	<properties>
 		<java.version>11</java.version>
@@ -22,14 +22,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-oauth2-client</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
