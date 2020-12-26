@@ -1,10 +1,12 @@
 com/work/models/User.class
 com/work/security/jwt/AuthTokenFilter.class
+com/work/payload/request/TodoUpdateRequest.class
 com/work/security/jwt/AuthEntryPointJwt.class
 com/work/payload/request/TodoRequest.class
 com/work/security/services/UserDetailsServiceImpl.class
 com/work/security/WebSecurityConfig.class
 com/work/payload/response/MessageResponse.class
+com/work/controllers/UserController.class
 com/work/security/jwt/JwtUtils.class
 com/work/models/ERole.class
 com/work/repository/UserRepository.class
@@ -18,6 +20,7 @@ com/work/models/Role.class
 com/work/controllers/TodoController.class
 com/work/repository/RoleRepository.class
 com/work/SpringBootTodoApplication.class
+com/work/payload/request/UserRequest.class
 com/work/payload/response/JwtResponse.class
 com/work/models/EStatus.class
 com/work/payload/request/LoginRequest.class
