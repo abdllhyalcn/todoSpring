@@ -21,6 +21,16 @@ public class UserRequest {
     @Email
     private String new_email;
 
+    private String isAdmin;
+
+    public String getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(String isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
     public Long getUser_id() {
         return user_id;
     }

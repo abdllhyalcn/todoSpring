@@ -6,6 +6,7 @@ import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class TodoRequest {
@@ -13,8 +14,7 @@ public class TodoRequest {
     @Size(min = 3, max = 150)
     private String description;
 
-    @FutureOrPresent(message = "Date input is invalid because past.")
-    @DateTimeFormat(pattern="yyyy-mm-dd")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date date_todo;
 
     private long status;

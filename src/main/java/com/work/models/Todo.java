@@ -1,5 +1,6 @@
 package com.work.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.FutureOrPresent;
@@ -23,7 +24,7 @@ public class Todo {
     @NotBlank
     private String description;
 
-    @FutureOrPresent(message = "Date input is invalid because past.")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date date_todo;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -32,7 +33,7 @@ public class Todo {
 
     public Todo(){}
 
-    public Todo(User user, @Size(max = 150) @NotBlank String description, @NotBlank Date date_todo, Status status) {
+    public Todo(User user, @Size(max = 150) @NotBlank String description,@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date date_todo, Status status) {
         this.user = user;
         this.description = description;
         this.date_todo = date_todo;

@@ -5,6 +5,7 @@ import com.work.payload.request.TodoRequest;
 import com.work.payload.request.TodoUpdateRequest;
 import com.work.payload.response.MessageResponse;
 import com.work.payload.response.NotFoundResponse;
+import com.work.payload.response.TodoResponse;
 import com.work.repository.StatusRepository;
 import com.work.repository.TodoRepository;
 import com.work.repository.UserRepository;
@@ -13,16 +14,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin
 @RestController
 @RequestMapping("/api/todo")
 public class TodoController {
@@ -83,15 +84,26 @@ public class TodoController {
         if (todos.isEmpty()) {
             throw new NotFoundResponse("Error: Todos are empty.");
         }
+        List<TodoResponse> todoResponses = new ArrayList<>();
+        for (Todo todo : todos) {
+            TodoResponse todoResponse = new TodoResponse(
+                    todo.getId(),
+                    todo.getUser().getId(),
+                    todo.getDescription(),
+                    todo.getDate_todo(),
+                    todo.getStatus().getId()
+            );
+            todoResponses.add(todoResponse);
+        }
 
-        return ResponseEntity.ok().body(todos);
+        return ResponseEntity.ok().body(todoResponses);
 
     }
 
     @GetMapping("getUserTodos")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> getUserTodos(@Valid @RequestParam
-            (name = "user=id") Long user_id) {
+            (name = "user_id") Long user_id) {
 
         User user = userRepository.findById(user_id)
                 .orElseThrow(() -> new NotFoundResponse("Error: User is not found."));
@@ -100,8 +112,19 @@ public class TodoController {
         if (todos.isEmpty()) {
             throw new NotFoundResponse("Error: Todos are empty.");
         }
+        List<TodoResponse> todoResponses = new ArrayList<>();
+        for (Todo todo : todos) {
+            TodoResponse todoResponse = new TodoResponse(
+                    todo.getId(),
+                    todo.getUser().getId(),
+                    todo.getDescription(),
+                    todo.getDate_todo(),
+                    todo.getStatus().getId()
+            );
+            todoResponses.add(todoResponse);
+        }
 
-        return ResponseEntity.ok().body(todos);
+        return ResponseEntity.ok().body(todoResponses);
     }
 
     @PostMapping("updateTodo")

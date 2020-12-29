@@ -10,6 +10,7 @@ com/work/controllers/UserController.class
 com/work/security/jwt/JwtUtils.class
 com/work/models/ERole.class
 com/work/repository/UserRepository.class
+com/work/payload/response/TodoResponse.class
 com/work/models/Todo.class
 com/work/controllers/AuthController.class
 com/work/payload/request/SignupRequest.class
@@ -25,4 +26,5 @@ com/work/payload/response/JwtResponse.class
 com/work/models/EStatus.class
 com/work/payload/request/LoginRequest.class
 com/work/security/services/UserDetailsImpl.class
+com/work/payload/response/UserResponse.class
 com/work/models/Status.class

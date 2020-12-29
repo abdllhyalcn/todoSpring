@@ -14,7 +14,7 @@ public class SignupRequest {
     @Email
     private String email;
     
-    private Set<String> role;
+    private String isAdmin;
     
     @NotBlank
     @Size(min = 6, max = 40)
@@ -43,12 +43,12 @@ public class SignupRequest {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public Set<String> getRole() {
-      return this.role;
+
+    public String getIsAdmin() {
+        return isAdmin;
     }
-    
-    public void setRole(Set<String> role) {
-      this.role = role;
+
+    public void setIsAdmin(String isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }
